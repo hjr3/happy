@@ -1,0 +1,13 @@
+// Place all the styles related to the Thoughts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+#thought {
+    text-align: center;
+    margin-top: 40px;
+}
+
+#new_thought textarea {
+    width: 258px;
+    height: 80px;
+}

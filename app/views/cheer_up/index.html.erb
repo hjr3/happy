@@ -1,0 +1,12 @@
+<h1>Cheer Up</h1>
+
+<%= render 'form' %>
+
+<hr>
+<h2>By Category</h2>
+
+<ul>
+<% @tags.each do |tag| %>
+    <li><%= link_to tag.tag, random_thoughts_path(:tag => tag.tag) %></li>
+<% end %>
+</ul>
