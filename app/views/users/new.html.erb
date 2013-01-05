@@ -1,2 +1,20 @@
-<h1>Users#new</h1>
-<p>Find me in app/views/users/new.html.erb</p>
+<div class="container" id="user">
+    <h1>Signup</h1>
+    
+    <%= form_for(@user) do |f| %>
+    
+        <div class="field">
+            <%= f.label :email, 'Email' %>
+            <%= f.text_field :email %>
+        </div>
+    
+        <div class="field">
+            <%= f.label :password, 'Password' %>
+            <%= f.password_field :password %>
+        </div>
+    
+        <div class="actions">
+            <%= f.submit 'Signup' %>
+        </div>
+    <% end %>
+</div>
