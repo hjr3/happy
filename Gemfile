@@ -4,6 +4,7 @@ gem 'rails', '3.2.9'
 
 group :production, :staging do
   gem "pg"
+  gem 'thin'
 end
 
 group :development, :test do
@@ -30,5 +31,3 @@ gem 'bootstrap-sass', '~> 2.2.2.0'
 
 # To use ActiveModel has_secure_password
 gem 'bcrypt-ruby', '~> 3.0.0'
-
-gem 'thin'

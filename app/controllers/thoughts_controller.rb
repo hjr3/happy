@@ -1,4 +1,6 @@
 class ThoughtsController < ApplicationController
+    before_filter :authorized?
+
     # GET /thoughts
     # GET /thoughts.json
     def index
@@ -41,6 +43,7 @@ class ThoughtsController < ApplicationController
     # POST /thoughts.json
     def create
         @thought = Thought.new(params[:thought])
+        @thought.user_id = current_user.id
 
         respond_to do |format|
             if @thought.save
@@ -83,9 +86,9 @@ class ThoughtsController < ApplicationController
 
     def random
         if params.has_key?(:tag)
-            thoughts = Thought.joins(:tags).where('tag = ?', params[:tag]).order("RANDOM()").limit(1)
+            thoughts = Thought.joins(:tags).where('user_id = ?', current_user.id).where('tag = ?', params[:tag]).order("RANDOM()").limit(1)
         else
-            thoughts = Thought.order("RANDOM()").limit(1)
+            thoughts = Thought.where('user_id = ?', current_user.id).order("RANDOM()").limit(1)
         end
 
         @thought = thoughts.first

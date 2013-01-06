@@ -12,7 +12,7 @@ Happy::Application.routes.draw do
 
     resources :cheer_up, :path => '/cheer-up'
 
-    root :to => 'thoughts#index'
+    root :to => 'home#index'
 
     # See how all your routes lay out with "rake routes"
 end

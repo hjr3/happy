@@ -1,8 +1,9 @@
 class Thought < ActiveRecord::Base
-    attr_accessible :thought
+    attr_accessible :thought, :created_at
 
     validates :thought,   :presence => true
 
+    belongs_to :user
     has_many :tags
 
     before_save :create_tags

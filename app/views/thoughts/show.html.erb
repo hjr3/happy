@@ -1,10 +1,5 @@
-<p id="notice"><%= notice %></p>
- 
-<p>
-  <b>Thought:</b>
-  <%= @thought.thought %>
-</p>
-
-
-<%= link_to 'Edit', edit_thought_path(@thought) %> |
-<%= link_to 'Back', thoughts_path %>
+<section class="container well thought">
+    <p class="thought-text"><%= @thought.thought %></p>
+    <p class="thought-date pull-left">Written at <%= @thought.created_at.strftime '%l:%M %P' %> on <%= @thought.created_at.strftime '%b %-d %Y' %></p>
+    <p class="thought-edit pull-right"><%= link_to 'Edit', edit_thought_path(@thought) %></p>
+</section>

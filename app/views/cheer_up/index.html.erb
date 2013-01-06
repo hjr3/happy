@@ -1,12 +1,23 @@
-<h1>Cheer Up</h1>
-
-<%= render 'form' %>
-
-<hr>
-<h2>By Category</h2>
-
-<ul>
-<% @tags.each do |tag| %>
-    <li><%= link_to tag.tag, random_thoughts_path(:tag => tag.tag) %></li>
-<% end %>
-</ul>
+<section class="container-fluid">
+    <div class="row-fluid">
+        <div class="span3">
+            <div class="well sidebar-nav">
+                <p>Looking for a specific thought to feel better?</p>
+                <li class="nav-header">Thought Keywords</li>
+                <ul>
+                <% @tags.each do |tag| %>
+                    <li><%= link_to tag.tag, random_thoughts_path(:tag => tag.tag) %></li>
+                <% end %>
+                </ul>
+            </div>
+        </div>
+        <div class="span9">
+            <div>
+                <h1>Cheer Up!</h1>
+                <p>Feeling down? Look at one of the random happy thoughts you recorded and start to feel better.</p>
+            
+                <%= render 'form' %>
+            </div>
+        </div>
+    </div>
+</section>
