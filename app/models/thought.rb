@@ -8,6 +8,11 @@ class Thought < ActiveRecord::Base
 
     before_save :create_tags
 
+    def self.perspective(user_id, days_back)
+        date = Date.today - days_back.days
+        thought = Thought.where('user_id = ?', user_id).where('DATE(created_at) = ?', date)
+    end
+
     protected
 
     def create_tags

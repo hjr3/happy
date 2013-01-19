@@ -6,6 +6,13 @@ class ThoughtsController < ApplicationController
     def index
         @thought = Thought.new
 
+        @perspective = []
+        [7, 30, 365].each do |num|
+            old_thought = Thought.perspective(current_user.id, num).first
+
+            @perspective.push old_thought unless old_thought.nil?
+        end
+
         respond_to do |format|
             format.html # index.html.erb
             format.json { render :json => @thoughts }

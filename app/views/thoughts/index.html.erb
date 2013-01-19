@@ -1,3 +1,13 @@
 <div class="container" id="thought">
     <%= render 'form' %>
+
+    <% if @perspective.length %>
+        <div id="perspective">
+            <ul class="unstyled">
+                <% @perspective.each do |p| %>
+                    <li><%= link_to (Date.today - p.created_at.to_date).to_i.to_s + ' days ago', p%> you wrote: <em><%= p.thought %></em></li>
+                <% end %>
+            </ul>
+        </div>
+    <% end %>
 </div>
