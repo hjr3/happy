@@ -19,15 +19,11 @@ class Thought < ActiveRecord::Base
         tags = self.thought.split(' ').select {|word| word.chars.first == '#'}
 
         for tag in tags do
-            tag = strip_tag tag
+            tag = tag.gsub(/[^A-Za-z]/, '')
 
             record = self.tags.find_or_create_by_tag(tag)
 
             record.save
         end
-    end
-
-    def strip_tag(tag)
-        tag[1..-1]
     end
 end
